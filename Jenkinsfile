@@ -4,9 +4,12 @@ def pscmd = { String cmd ->
 
 node
 {
-	stage "Getting code"
-	checkout scm
-	stage "Building"
-	bat(pscmd(".\build\build.ps1"))
-	stage "Done" 
+	stage ("Getting code")
+	{
+		checkout scm
+	}
+	stage("Building")
+	{
+		bat(pscmd(".\\build\\build.ps1"))
+	} 
 }	
