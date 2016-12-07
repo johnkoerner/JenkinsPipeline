@@ -5,7 +5,7 @@ param(
 
 function main()
 {
-    Start-Sleep -s 10
+    Start-Sleep -s 25
     $currDir = CurrentDirectory;
     $pathToSolution = (Resolve-Path ([io.path]::Combine($currDir, "..\JenkinsPipeline.sln"))).Path
 
