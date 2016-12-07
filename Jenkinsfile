@@ -10,7 +10,19 @@ node
 	}
 	stage("Building")
 	{
-		bat(pscmd(".\\build\\build.ps1 Release"))
-		bat(pscmd(".\\build\\build.ps1 Debug"))
+		stage ("Release")
+		{
+			node ()
+			{
+				bat(pscmd(".\\build\\build.ps1 Release"))
+			}
+		}
+		stage ("Debug")
+		{
+			node ()
+			{
+				bat(pscmd(".\\build\\build.ps1 Debug"))
+			}
+		}
 	} 
 }	
