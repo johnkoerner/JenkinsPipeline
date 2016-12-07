@@ -10,14 +10,14 @@ node
 	}
 	stage("Building")
 	{
-		stage ("Release")
+		parallel release:
 		{
 			node ()
 			{
 				bat(pscmd(".\\build\\build.ps1 Release"))
 			}
 		}
-		stage ("Debug")
+		debug:
 		{
 			node ()
 			{
