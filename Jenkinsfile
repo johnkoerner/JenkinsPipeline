@@ -8,18 +8,24 @@ node
 	{
 		parallel release:
 		{
-			node ()
+			stage("Release")
 			{
-				checkout scm
-				bat(pscmd(".\\build\\build.ps1 Release"))
+				node ()
+				{
+					checkout scm
+					bat(pscmd(".\\build\\build.ps1 Release"))
+				}
 			}
 		}
 		debug:
 		{
-			node ()
+			stage ("Debug")
 			{
-				checkout scm
-				bat(pscmd(".\\build\\build.ps1 Debug"))
+				node ()
+				{
+					checkout scm
+					bat(pscmd(".\\build\\build.ps1 Debug"))
+				}
 			}
 		}
 	} 
