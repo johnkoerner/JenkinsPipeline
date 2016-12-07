@@ -16,7 +16,7 @@ node
 					bat(pscmd(".\\build\\build.ps1 Release"))
 				}
 			}
-		}
+		},
 		debug:
 		{
 			stage ("Debug")
