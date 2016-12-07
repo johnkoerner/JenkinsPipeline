@@ -4,16 +4,13 @@ def pscmd = { String cmd ->
 
 node
 {
-	stage ("Getting code")
-	{
-		checkout scm
-	}
 	stage("Building")
 	{
 		parallel release:
 		{
 			node ()
 			{
+				checkout scm
 				bat(pscmd(".\\build\\build.ps1 Release"))
 			}
 		}
@@ -21,6 +18,7 @@ node
 		{
 			node ()
 			{
+				checkout scm
 				bat(pscmd(".\\build\\build.ps1 Debug"))
 			}
 		}
